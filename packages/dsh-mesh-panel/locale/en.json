@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "title": "Device Mesh",
+    "description": "Command other machines running dsh-meshd from this Desktop.",
+    "detail": "docs/DETAIL.md"
+  },
+  "panel": "Devices",
+  "devices": "Devices",
+  "tasks": "Tasks",
+  "approvals": "Approvals",
+  "send": "Send task",
+  "target": "Target device",
+  "cwd": "Working directory",
+  "prompt": "Task prompt",
+  "harness": "Harness",
+  "stop": "Stop",
+  "input": "Follow-up",
+  "pair": "Create pairing link",
+  "empty": "No tasks yet",
+  "offline": "offline",
+  "online": "online"
+}

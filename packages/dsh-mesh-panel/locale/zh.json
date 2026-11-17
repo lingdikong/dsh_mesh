@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "title": "设备网格",
+    "description": "在这台 Desktop 上指挥其他运行 dsh-meshd 的设备。",
+    "detail": "docs/DETAIL.md"
+  },
+  "panel": "设备",
+  "devices": "设备",
+  "tasks": "任务",
+  "approvals": "审批",
+  "send": "派发任务",
+  "target": "目标设备",
+  "cwd": "工作目录",
+  "prompt": "任务内容",
+  "harness": "执行器",
+  "stop": "停止",
+  "input": "追加指令",
+  "pair": "生成配对链接",
+  "empty": "还没有任务",
+  "offline": "离线",
+  "online": "在线"
+}
