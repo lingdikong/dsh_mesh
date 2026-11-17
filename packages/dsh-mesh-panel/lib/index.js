@@ -104,9 +104,17 @@ function readBody(request) {
 
 async function proxy(request, response) {
   const origin = request.headers.origin
+  if (process.env.DSH_MESH_DEBUG) {
+    console.error('[mesh-panel] proxy', request.method, request.url, 'origin=', origin, 'host=', request.headers.host)
+  }
   if (origin && !origin.startsWith('dsh-app://')) {
     try {
-      if (new URL(origin).host !== request.headers.host) {
+      // Browsers may omit the default/omitted port in Origin (e.g. "http://127.0.0.1"),
+      // so compare hostnames and only enforce a port when Origin states one.
+      const originUrl = new URL(origin)
+      const hostUrl = new URL(`http://${request.headers.host ?? '127.0.0.1'}`)
+      const portMismatch = originUrl.port !== '' && hostUrl.port !== '' && originUrl.port !== hostUrl.port
+      if (originUrl.hostname !== hostUrl.hostname || portMismatch) {
         response.writeHead(403, { 'content-type': 'application/json' })
         response.end(JSON.stringify({ error: 'cross-origin request refused' }))
         return
